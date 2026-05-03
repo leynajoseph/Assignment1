@@ -1,0 +1,45 @@
+# --- Propositional logic examples ---
+VALID   | A -> A
+VALID   | A | ~A
+VALID   | ~~A -> A
+VALID   | (A & B) -> A
+VALID   | (A & B) -> B
+VALID   | A -> (A | B)
+VALID   | B -> (A | B)
+VALID   | A -> (B -> A)
+VALID   | (A & (A -> B)) -> B
+VALID   | (A -> B) -> ((B -> C) -> (A -> C))
+VALID   | (A -> B) -> ((~A -> B) -> B)
+VALID   | ((A -> B) & (B -> C)) -> (A -> C)
+VALID   | ~(A & B) -> (~A | ~B)
+VALID   | (~A | ~B) -> ~(A & B)
+VALID   | ~(A | B) -> (~A & ~B)
+VALID   | (A & B) | (~A | ~B)
+VALID   | ((A -> B) -> A) -> A
+VALID   | (A -> (B -> C)) -> ((A -> B) -> (A -> C))
+VALID   | ((A -> B) -> A) -> ((A -> B) -> B)
+
+# --- First-order logic examples (from textbook) ---
+VALID   | forall x.P(x) -> P(a)
+VALID   | P(a) -> exists x.P(x)
+VALID   | ~forall x.R(x) -> exists x.~R(x)
+VALID   | forall x.R1(x) -> (forall x.R2(x) -> forall y.(R1(y) & R2(y)))
+VALID   | exists x.forall y.R(x,y) -> forall y.exists x.R(x,y)
+VALID   | forall x.(P(x) & Q(x)) -> (forall x.P(x) & forall x.Q(x))
+VALID   | (exists x.P(x) | exists x.Q(x)) -> exists x.(P(x) | Q(x))
+VALID   | forall x.(P(x) -> Q(x)) -> (forall x.P(x) -> forall x.Q(x))
+VALID   | (forall x.P(x) | forall x.Q(x)) -> forall x.(P(x) | Q(x))
+VALID   | forall x.forall y.R(x,y) -> forall y.forall x.R(x,y)
+VALID   | exists x.exists y.R(x,y) -> exists y.exists x.R(x,y)
+
+# --- Invalid formulas ---
+INVALID | A -> B
+INVALID | A & B
+INVALID | (A | B) -> A
+INVALID | (A | B) -> (A & B)
+INVALID | (A -> B) -> (B -> A)
+INVALID | forall x.P(x)
+INVALID | exists x.P(x) -> forall x.P(x)
+INVALID | forall y.exists x.R(x,y) -> exists x.forall y.R(x,y)
+INVALID | P(a) -> forall x.P(x)
+INVALID | forall x.(P(x) | Q(x)) -> (forall x.P(x) | forall x.Q(x))

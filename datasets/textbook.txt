@@ -1,0 +1,41 @@
+# Tautologies generated from templates
+VALID   | A -> A
+VALID   | (A & B) -> A
+VALID   | (A & B) -> B
+VALID   | A -> (A | B)
+VALID   | A -> (B | A)
+VALID   | (A & B) -> (B & A)
+VALID   | (A | B) -> (B | A)
+VALID   | ((A & B) & C) -> (A & (B & C))
+VALID   | (A & (B & C)) -> ((A & B) & C)
+VALID   | ((A | B) | C) -> (A | (B | C))
+VALID   | (A | (B | C)) -> ((A | B) | C)
+
+# Repeated nesting of valid pattern 
+VALID   | (A -> A) & (B -> B)
+VALID   | (A -> A) & ((B -> B) & (C -> C))
+VALID   | A -> (B -> (A & B))
+VALID   | (A & B) -> (A & (A | B))
+VALID   | ((A | B) & ~A) -> B
+VALID   | ((A | B) & ~B) -> A
+
+# Quantifier scaling 
+VALID   | forall x.P(x) -> P(a)
+VALID   | forall x.P(x) -> exists y.P(y)
+VALID   | forall x.forall y.R(x,y) -> R(a,b)
+VALID   | (forall x.P(x) & forall x.Q(x)) -> forall x.(P(x) & Q(x))
+VALID   | forall x.(P(x) & Q(x)) -> (forall x.P(x) & forall x.Q(x))
+VALID   | exists x.(P(x) | Q(x)) -> (exists x.P(x) | exists x.Q(x))
+
+#  Contradictions and invalid patterns 
+INVALID | A & ~A
+INVALID | (A -> B) & A & ~B
+INVALID | (A | B) & ~A & ~B
+INVALID | (A & B) -> (A & ~B)
+INVALID | A -> (A & B)
+INVALID | (A | B) -> A
+INVALID | (A | B) -> B
+INVALID | forall x.P(x) -> exists x.~P(x)
+INVALID | exists x.P(x) -> forall x.P(x)
+INVALID | (forall x.P(x) | forall x.Q(x)) -> forall x.(P(x) & Q(x))
+INVALID | forall x.exists y.R(x,y) -> exists y.forall x.R(x,y)

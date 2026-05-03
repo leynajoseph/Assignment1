@@ -1,0 +1,85 @@
+# === Propositional problems ===
+
+# Pelletier #1: Implication transitivity
+VALID   | (A -> B) -> (~B -> ~A)
+
+# Pelletier #2: Double negation
+VALID   | ~~A -> A
+
+# Pelletier #3: Contrapositive
+VALID   | ~(A -> B) -> (B -> A)
+
+# Pelletier #4: Equivalence variant
+VALID   | (~A -> B) -> (~B -> A)
+
+# Pelletier #5: Disjunction distribution
+VALID   | ((A | B) -> (A | C)) -> (A | (B -> C))
+
+# Pelletier #6: Excluded middle
+VALID   | A | ~A
+
+# Pelletier #7: Stronger excluded middle
+VALID   | A | ~~~A
+
+# Pelletier #8: Peirce's law
+VALID   | ((A -> B) -> A) -> A
+
+# Pelletier #9: De Morgan style
+VALID   | ((A | B) & (~A | B) & (A | ~B)) -> ~(~A | ~B)
+
+# Pelletier #10: Equivalence
+VALID   | ((A -> B) & (B -> A)) -> ((A & B) | (~A & ~B))
+
+# Pelletier #11: Self equivalence
+VALID   | (A -> A) & (B -> B)
+
+# Pelletier #12: Equivalence chain
+VALID   | ((A -> B) -> C) -> ((A -> B) | C)
+
+# Pelletier #13: Distribution
+VALID   | (A | (B & C)) -> ((A | B) & (A | C))
+
+# Pelletier #14: Reverse distribution
+VALID   | ((A | B) & (A | C)) -> (A | (B & C))
+
+# Pelletier #15: Implication conversion
+VALID   | (A -> B) -> (~A | B)
+
+# Pelletier #16: Reverse conversion
+VALID   | (~A | B) -> (A -> B)
+
+# Pelletier #17: Complex chain
+VALID   | ((A & (B -> C)) -> D) -> ((~A | B | D) & (~A | ~C | D))
+
+# === First-order problems ===
+
+# Pelletier #18: Existential trivial
+VALID   | exists y.forall x.(F(y) -> F(x))
+
+# Pelletier #19: Forall to exists
+VALID   | exists x.forall y.forall z.((P(y) -> Q(z)) -> (P(x) -> Q(x)))
+
+# Pelletier #20: Quantifier swap
+VALID   | (forall x.forall y.exists z.forall w.((P(x) & Q(y)) -> (R(z) & S(w)))) -> (exists x.exists y.(P(x) & Q(y))) -> exists z.R(z)
+
+# Pelletier #21: Mixed
+VALID   | (exists x.(P -> F(x)) & exists x.(F(x) -> P)) -> exists x.(P -> F(x)) & exists x.(F(x) -> P)
+
+# Pelletier #22: Distribution over forall
+VALID   | forall x.(P -> F(x)) -> (P -> forall x.F(x))
+
+# Pelletier #23: Distribution over exists
+VALID   | (forall x.(P | F(x))) -> (P | forall x.F(x))
+
+# Pelletier #24: Empty domain trick
+INVALID | forall x.P(x) -> exists x.~P(x)
+
+# Pelletier #25: Negated quantifier
+VALID   | (exists x.P(x) & forall x.(F(x) -> ~G(x) & R(x)) & forall x.(P(x) -> G(x) & F(x)) & (forall x.(P(x) -> H(x)) | exists x.(P(x) & R(x)))) -> exists x.(H(x) & P(x))
+
+# === Counter-examples (invalid formulas) ===
+INVALID | (A -> B) -> A
+INVALID | A & ~A
+INVALID | (A | B) -> (A & B)
+INVALID | forall x.exists y.R(x,y) -> exists y.forall x.R(x,y)
+INVALID | (exists x.P(x)) -> (forall x.P(x))

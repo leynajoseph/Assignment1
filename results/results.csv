@@ -1,0 +1,105 @@
+dataset,formula,expected,baseline_result,baseline_correct,baseline_time_ms,baseline_timeout,improved_result,improved_correct,improved_time_ms,improved_timeout
+Textbook,A -> A,True,True,True,0.0073,False,True,True,0.0054,False
+Textbook,(A & B) -> A,True,True,True,0.0094,False,True,True,0.0139,False
+Textbook,(A & B) -> B,True,True,True,0.0050,False,True,True,0.0088,False
+Textbook,A -> (A | B),True,True,True,0.0045,False,True,True,0.0091,False
+Textbook,A -> (B | A),True,True,True,0.0042,False,True,True,0.0088,False
+Textbook,(A & B) -> (B & A),True,True,True,0.0074,False,True,True,0.0172,False
+Textbook,(A | B) -> (B | A),True,True,True,0.0066,False,True,True,0.0161,False
+Textbook,((A & B) & C) -> (A & (B & C)),True,True,True,0.0124,False,True,True,0.0420,False
+Textbook,(A & (B & C)) -> ((A & B) & C),True,True,True,0.0116,False,True,True,0.0407,False
+Textbook,((A | B) | C) -> (A | (B | C)),True,True,True,0.0111,False,True,True,0.0402,False
+Textbook,(A | (B | C)) -> ((A | B) | C),True,True,True,0.0111,False,True,True,0.0406,False
+Textbook,(A -> A) & (B -> B),True,True,True,0.0069,False,True,True,0.0116,False
+Textbook,(A -> A) & ((B -> B) & (C -> C)),True,True,True,0.0112,False,True,True,0.0260,False
+Textbook,A -> (B -> (A & B)),True,True,True,0.0069,False,True,True,0.0163,False
+Textbook,(A & B) -> (A & (A | B)),True,True,True,0.0084,False,True,True,0.0261,False
+Textbook,((A | B) & ~A) -> B,True,True,True,0.0088,False,True,True,0.0261,False
+Textbook,((A | B) & ~B) -> A,True,True,True,0.0083,False,True,True,0.0258,False
+Textbook,forall x.P(x) -> P(a),True,True,True,0.0165,False,True,True,0.0221,False
+Textbook,forall x.P(x) -> exists y.P(y),True,False,False,0.0281,False,False,False,0.3280,False
+Textbook,"forall x.forall y.R(x,y) -> R(a,b)",True,True,True,0.3252,False,True,True,0.6306,False
+Textbook,(forall x.P(x) & forall x.Q(x)) -> forall x.(P(x) & Q(x)),True,False,False,0.0291,False,False,False,0.3705,False
+Textbook,forall x.(P(x) & Q(x)) -> (forall x.P(x) & forall x.Q(x)),True,True,True,0.0513,False,True,True,0.0972,False
+Textbook,exists x.(P(x) | Q(x)) -> (exists x.P(x) | exists x.Q(x)),True,True,True,0.0207,False,False,False,24.5003,False
+Textbook,A & ~A,False,False,True,0.0062,False,False,True,0.0650,False
+Textbook,(A -> B) & A & ~B,False,False,True,0.0128,False,False,True,0.1169,False
+Textbook,(A | B) & ~A & ~B,False,False,True,0.0120,False,False,True,0.1160,False
+Textbook,(A & B) -> (A & ~B),False,False,True,0.0134,False,False,True,0.1248,False
+Textbook,A -> (A & B),False,False,True,0.0080,False,False,True,0.0873,False
+Textbook,(A | B) -> A,False,False,True,0.0075,False,False,True,0.0962,False
+Textbook,(A | B) -> B,False,False,True,0.0072,False,False,True,0.1427,False
+Textbook,forall x.P(x) -> exists x.~P(x),False,False,True,0.0150,False,False,True,0.1147,False
+Textbook,exists x.P(x) -> forall x.P(x),False,False,True,0.0136,False,False,True,0.1163,False
+Textbook,(forall x.P(x) | forall x.Q(x)) -> forall x.(P(x) & Q(x)),False,False,True,0.0436,False,False,True,0.4103,False
+Textbook,"forall x.exists y.R(x,y) -> exists y.forall x.R(x,y)",False,False,True,0.1147,False,False,True,1554.9635,False
+Pelletier,(A -> B) -> (~B -> ~A),True,True,True,0.0157,False,True,True,0.0401,False
+Pelletier,~~A -> A,True,True,True,0.0058,False,True,True,0.0141,False
+Pelletier,~(A -> B) -> (B -> A),True,True,True,0.0081,False,True,True,0.0246,False
+Pelletier,(~A -> B) -> (~B -> A),True,True,True,0.0104,False,True,True,0.0376,False
+Pelletier,((A | B) -> (A | C)) -> (A | (B -> C)),True,True,True,0.0159,False,True,True,0.0461,False
+Pelletier,A | ~A,True,True,True,0.0037,False,True,True,0.0070,False
+Pelletier,A | ~~~A,True,True,True,0.0066,False,True,True,0.0217,False
+Pelletier,((A -> B) -> A) -> A,True,True,True,0.0071,False,True,True,0.0178,False
+Pelletier,((A | B) & (~A | B) & (A | ~B)) -> ~(~A | ~B),True,False,False,0.0170,False,True,True,0.2302,False
+Pelletier,((A -> B) & (B -> A)) -> ((A & B) | (~A & ~B)),True,False,False,0.0165,False,True,True,0.1151,False
+Pelletier,(A -> A) & (B -> B),True,True,True,0.0160,False,True,True,0.0150,False
+Pelletier,((A -> B) -> C) -> ((A -> B) | C),True,False,False,0.0163,False,False,False,0.1783,False
+Pelletier,(A | (B & C)) -> ((A | B) & (A | C)),True,True,True,0.0197,False,True,True,0.0528,False
+Pelletier,((A | B) & (A | C)) -> (A | (B & C)),True,False,False,0.0148,False,True,True,0.0623,False
+Pelletier,(A -> B) -> (~A | B),True,True,True,0.0087,False,True,True,0.0249,False
+Pelletier,(~A | B) -> (A -> B),True,True,True,0.0083,False,True,True,0.0261,False
+Pelletier,((A & (B -> C)) -> D) -> ((~A | B | D) & (~A | ~C | D)),True,False,False,0.0175,False,True,True,0.1645,False
+Pelletier,exists y.forall x.(F(y) -> F(x)),True,True,True,0.0110,False,True,True,0.0630,False
+Pelletier,exists x.forall y.forall z.((P(y) -> Q(z)) -> (P(x) -> Q(x))),True,True,True,0.0107,False,True,True,3.0463,False
+Pelletier,(forall x.forall y.exists z.forall w.((P(x) & Q(y)) -> (R(z) & S(w)))) -> (exists x.exists y.(P(x) & Q(y))) -> exists z.R(z),True,False,False,0.0597,False,False,False,8622.2175,False
+Pelletier,(exists x.(P -> F(x)) & exists x.(F(x) -> P)) -> exists x.(P -> F(x)) & exists x.(F(x) -> P),True,True,True,0.0084,False,True,True,0.0105,False
+Pelletier,forall x.(P -> F(x)) -> (P -> forall x.F(x)),True,True,True,0.0399,False,True,True,0.0813,False
+Pelletier,(forall x.(P | F(x))) -> (P | forall x.F(x)),True,True,True,0.0210,False,True,True,0.0710,False
+Pelletier,forall x.P(x) -> exists x.~P(x),False,False,True,0.0131,False,False,True,0.1202,False
+Pelletier,(exists x.P(x) & forall x.(F(x) -> ~G(x) & R(x)) & forall x.(P(x) -> G(x) & F(x)) & (forall x.(P(x) -> H(x)) | exists x.(P(x) & R(x)))) -> exists x.(H(x) & P(x)),True,False,False,0.0295,False,False,False,1.0328,False
+Pelletier,(A -> B) -> A,False,False,True,0.0085,False,False,True,0.0857,False
+Pelletier,A & ~A,False,False,True,0.0056,False,False,True,0.0625,False
+Pelletier,(A | B) -> (A & B),False,False,True,0.0113,False,False,True,0.1098,False
+Pelletier,"forall x.exists y.R(x,y) -> exists y.forall x.R(x,y)",False,False,True,0.1098,False,False,True,1565.9362,False
+Pelletier,(exists x.P(x)) -> (forall x.P(x)),False,False,True,0.0170,False,False,True,0.1284,False
+Generated,A -> A,True,True,True,0.0047,False,True,True,0.0054,False
+Generated,A | ~A,True,True,True,0.0060,False,True,True,0.0105,False
+Generated,~~A -> A,True,True,True,0.0054,False,True,True,0.0180,False
+Generated,(A & B) -> A,True,True,True,0.0059,False,True,True,0.0108,False
+Generated,(A & B) -> B,True,True,True,0.0046,False,True,True,0.0090,False
+Generated,A -> (A | B),True,True,True,0.0038,False,True,True,0.0103,False
+Generated,B -> (A | B),True,True,True,0.0049,False,True,True,0.0098,False
+Generated,A -> (B -> A),True,True,True,0.0045,False,True,True,0.0076,False
+Generated,(A & (A -> B)) -> B,True,True,True,0.0097,False,True,True,0.0198,False
+Generated,(A -> B) -> ((B -> C) -> (A -> C)),True,True,True,0.0158,False,True,True,0.0479,False
+Generated,(A -> B) -> ((~A -> B) -> B),True,True,True,0.0146,False,True,True,0.0457,False
+Generated,((A -> B) & (B -> C)) -> (A -> C),True,True,True,0.0161,False,True,True,0.0484,False
+Generated,~(A & B) -> (~A | ~B),True,False,False,0.0142,False,True,True,0.0535,False
+Generated,(~A | ~B) -> ~(A & B),True,True,True,0.0153,False,True,True,0.0466,False
+Generated,~(A | B) -> (~A & ~B),True,True,True,0.0143,False,True,True,0.0476,False
+Generated,(A & B) | (~A | ~B),True,True,True,0.0121,False,True,True,0.0429,False
+Generated,((A -> B) -> A) -> A,True,True,True,0.0088,False,True,True,0.0232,False
+Generated,(A -> (B -> C)) -> ((A -> B) -> (A -> C)),True,False,False,0.0157,False,True,True,0.0709,False
+Generated,((A -> B) -> A) -> ((A -> B) -> B),True,True,True,0.0142,False,True,True,0.0400,False
+Generated,forall x.P(x) -> P(a),True,True,True,0.0161,False,True,True,0.0245,False
+Generated,P(a) -> exists x.P(x),True,True,True,0.0083,False,True,True,0.0167,False
+Generated,~forall x.R(x) -> exists x.~R(x),True,True,True,0.0155,False,True,True,0.0694,False
+Generated,forall x.R1(x) -> (forall x.R2(x) -> forall y.(R1(y) & R2(y))),True,False,False,0.0342,False,False,False,0.4044,False
+Generated,"exists x.forall y.R(x,y) -> forall y.exists x.R(x,y)",True,False,False,0.1330,False,False,False,4.6523,False
+Generated,forall x.(P(x) & Q(x)) -> (forall x.P(x) & forall x.Q(x)),True,True,True,0.0463,False,True,True,0.0926,False
+Generated,(exists x.P(x) | exists x.Q(x)) -> exists x.(P(x) | Q(x)),True,True,True,0.0272,False,True,True,0.1043,False
+Generated,forall x.(P(x) -> Q(x)) -> (forall x.P(x) -> forall x.Q(x)),True,False,False,0.0460,False,False,False,0.7236,False
+Generated,(forall x.P(x) | forall x.Q(x)) -> forall x.(P(x) | Q(x)),True,True,True,0.0389,False,True,True,0.0672,False
+Generated,"forall x.forall y.R(x,y) -> forall y.forall x.R(x,y)",True,True,True,0.1510,False,True,True,0.1534,False
+Generated,"exists x.exists y.R(x,y) -> exists y.exists x.R(x,y)",True,True,True,0.0179,False,,False,10004.9292,True
+Generated,A -> B,False,False,True,0.0072,False,False,True,0.0478,False
+Generated,A & B,False,False,True,0.0060,False,False,True,0.0620,False
+Generated,(A | B) -> A,False,False,True,0.0078,False,False,True,0.0878,False
+Generated,(A | B) -> (A & B),False,False,True,0.0105,False,False,True,0.1142,False
+Generated,(A -> B) -> (B -> A),False,False,True,0.0105,False,False,True,0.1588,False
+Generated,forall x.P(x),False,False,True,0.0077,False,False,True,0.0664,False
+Generated,exists x.P(x) -> forall x.P(x),False,False,True,0.0120,False,False,True,0.1196,False
+Generated,"forall y.exists x.R(x,y) -> exists x.forall y.R(x,y)",False,False,True,0.1112,False,False,True,1521.3104,False
+Generated,P(a) -> forall x.P(x),False,False,True,0.0109,False,False,True,0.0905,False
+Generated,forall x.(P(x) | Q(x)) -> (forall x.P(x) | forall x.Q(x)),False,False,True,0.0395,False,False,True,2.2737,False
