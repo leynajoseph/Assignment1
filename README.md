@@ -14,7 +14,7 @@ This repository contains both the **baseline** prover (a faithful implementation
 ├── improved_prover.py              # Improved version with three enhancements
 ├── benchmark.py                    # Runs both provers on all datasets
 ├── visualise.py                    # Generates result charts (vector PDF)
-├── make_architecture_diagram.py    # Generates the system architecture figure
+├── architecture_diagram.py    # Generates the system architecture figure
 ├── datasets/
 │   ├── textbook.txt                # Examples adapted from the course textbook
 │   ├── pelletier.txt               # Subset of the Pelletier (1986) benchmark
@@ -53,7 +53,7 @@ python3 visualise.py
 Generate the architecture diagram:
 
 ```bash
-python3 make_architecture_diagram.py
+python3 architecture_diagram.py
 ```
 
 ## Formula syntax
